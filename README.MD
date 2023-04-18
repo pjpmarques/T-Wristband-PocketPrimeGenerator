@@ -7,7 +7,7 @@ This program displays prime numbers on a [LilyGO Wristband](https://github.com/X
 
 Notable features:
 
-* It calculates the prime numbers on startup up-to 99,9999 (the display can only show 6 digits)
+* It calculates the prime numbers on startup upto 99,9999 (the display can only show 6 digits)
 * When pressing the button it shows a graph with how much battery is left as well as it's level and percentage
 * LED turns on when charging from USB
 * It uses light sleep for improved power consumption

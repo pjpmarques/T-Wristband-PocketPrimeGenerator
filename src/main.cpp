@@ -34,7 +34,7 @@ TFT_eSPI tft;                               // The TFT display
 
 float battery_voltage;                      // Last read battery voltage
 const int V_UPDATE_INTERVAL = 5000;         // Update battery values every 5 seconds
-const double V_DIE_THRESOLD = 3.3;          // Threshold for ESP32 to turn off
+const double V_DIE_THRESOLD = 3.0;          // Threshold for ESP32 to turn off
 const double V_MAX_VOLTAGE = 4.34;          // Max battery charge
 
 // ------------------------------------------------------------------------
@@ -163,6 +163,8 @@ void displayVoltage() {
 
   if (!digitalRead(CHARGE_PIN)) {
     sprintf(buf, "Battery charging");
+  } else if (lastVoltage < V_DIE_THRESOLD) {
+    sprintf(buf, "Battery empty");
   } else {
     unsigned long timeToDecompose = timeToDie;
     unsigned long hours = timeToDecompose / 3600;
